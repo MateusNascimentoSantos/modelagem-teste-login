@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Banho e Tosa Profissional</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/logo.jpg" alt="PetCare">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#unidades">Unidades</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#meus-agendamentos" id="btnMeusAgendamentos">Meus Agendamentos</a></li>
+                    <!-- Esse <li> será controlado pelo JS -->
+                    <li id="loginLogoutLi" class="Login-in">
+                        <a id="loginLogoutLink" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-toggle" aria-label="Abrir Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Banho e Tosa com <span>Profissionais Especializados</span></h1>
+                    <p class="subtitle">Deixe seu pet nas mãos de quem realmente entende do assunto</p>
+                    <div class="cta-buttons">
+                        <a href="#agendar" class="btn primary">Agende agora</a>
+                        <a href="#unidades" class="btn secondary">Encontre uma unidade</a>
+                    </div>
+                    <div class="hero-badges">
+                        <div class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span class="header-span">Produtos de qualidade</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-heart"></i>
+                            <span class="header-span">Profissionais qualificados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-video">
+                    <video autoplay loop muted playsinline>
+                        <source src="assets/videos/dog-bath.mp4" type="video/mp4">
+                        <!-- Fallback para imagem caso o vídeo não carregue -->
+                        <img src="assets/images/dog-bath-fallback.jpg" alt="Cachorro tomando banho">
+                    </video>
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Tudo que seu pet precisa para ficar limpo, cheiroso e saudável</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="assets/images/services/banho.jpg" alt="Banho Completo">
+                    </div>
+                    <div class="service-content">
+                        <h3>Banho Completo</h3>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Shampoo adequado para cada pelagem</li>
+                            <li><i class="fas fa-check"></i> Secagem cuidadosa</li>
+                            <li><i class="fas fa-check"></i> Limpeza de ouvidos</li>
+                            <li><i class="fas fa-check"></i> Corte de unhas</li>
+                        </ul>
+                        <div class="service-price">
+                            <span>A partir de</span>
+                            <strong>R$ 45,00</strong>
+                        </div>
+                        <a href="#agendar" class="btn small">Agendar</a>
+                    </div>
+                </div>
+
+                <div class="service-card highlighted">
+                    <div class="service-image">
+                        <img src="assets/images/services/tosa.jpg" alt="Tosa Higiênica">
+                        <div class="popular-badge">Mais popular</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Tosa Higiênica</h3>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Tosa na região íntima</li>
+                            <li><i class="fas fa-check"></i> Tosa nas patas</li>
+                            <li><i class="fas fa-check"></i> Limpeza facial</li>
+                            <li><i class="fas fa-check"></i> Corte de unhas</li>
+                        </ul>
+                        <div class="service-price">
+                            <span>A partir de</span>
+                            <strong>R$ 65,00</strong>
+                        </div>
+                        <a href="#agendar" class="btn small">Agendar</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="assets/images/services/spa.jpg" alt="SPA Pet">
+                    </div>
+                    <div class="service-content">
+                        <h3>SPA Pet</h3>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Banho relaxante</li>
+                            <li><i class="fas fa-check"></i> Hidratação premium</li>
+                            <li><i class="fas fa-check"></i> Massagem terapêutica</li>
+                            <li><i class="fas fa-check"></i> Aromaterapia</li>
+                        </ul>
+                        <div class="service-price">
+                            <span>A partir de</span>
+                            <strong>R$ 120,00</strong>
+                        </div>
+                        <a href="#agendar" class="btn small">Agendar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section id="beneficios" class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Por que escolher nossos serviços?</h2>
+            <p class="section-subtitle">Tudo que seu pet merece e você espera de um serviço de qualidade</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Profissionais Certificados</h3>
+                    <p>Nossa equipe passa por treinamentos constantes para oferecer o melhor atendimento.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Produtos Premium</h3>
+                    <p>Utilizamos apenas produtos de alta qualidade, adequados para cada tipo de pelagem.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Agendamento Online</h3>
+                    <p>Agende no horário mais conveniente para você, sem precisar sair de casa.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Cuidado Individual</h3>
+                    <p>Cada pet recebe atenção especial de acordo com suas necessidades específicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unidades -->
+    <section id="unidades" class="locations-section">
+        <div class="container">
+            <h2 class="section-title">Nossas Unidades</h2>
+            <p class="section-subtitle">Encontre a PetCare mais perto de você</p>
+
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-map">
+                        <!-- Inserir mapa ou imagem do local -->
+                        <img src="assets/images/fachada2.jpg" alt="Unidade Centro">
+                    </div>
+                    <div class="location-info">
+                        <h3>PetCare Centro</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Rua dos Animais, 123 - Centro</p>
+                        <p><i class="fas fa-phone"></i> (21) 1234-5678</p>
+                        <p><i class="fas fa-clock"></i> Seg-Sex: 9h-19h | Sáb: 9h-14h</p>
+                        <a href="#agendar" class="btn small">Agendar nesta unidade</a>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-map">
+                        <img src="assets/images/fachada1.jpg" alt="Unidade Zona Sul">
+                    </div>
+                    <div class="location-info">
+                        <h3>PetCare Zona Sul</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Av. dos Pets, 456 - Zona Sul</p>
+                        <p><i class="fas fa-phone"></i> (21) 9876-5432</p>
+                        <p><i class="fas fa-clock"></i> Seg-Sex: 9h-19h | Sáb: 9h-14h</p>
+                        <a href="#agendar" class="btn small">Agendar nesta unidade</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">O que dizem nossos clientes</h2>
+            <p class="section-subtitle">A satisfação dos pets e seus donos é nossa maior recompensa</p>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Meu cachorro sempre volta feliz da PetCare. Os profissionais são incríveis e realmente amam
+                            os animais. Recomendo muito!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/perfilmulher.jpg" alt="Ana Silva">
+                        <div>
+                            <strong>Ana Silva</strong>
+                            <span>Tutora do Thor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Minha gata é super arisca, mas na PetCare ela se comporta super bem. O ambiente é calmo e os
+                            profissionais muito pacientes."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/perfilhomem.jpg" alt="Carlos Oliveira">
+                        <div>
+                            <strong>Carlos Oliveira</strong>
+                            <span>Tutor da Luna</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Formulário de Agendamento -->
+<section id="agendar" class="booking-section">
+    <div class="container">
+        <div class="booking-form-container">
+            <div class="booking-info">
+                <h2>Agende o banho e tosa do seu pet</h2>
+                <p>Preencha o formulário e entraremos em contato para confirmar o horário.</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <span>Ligue para nós</span>
+                            <strong>(21) 9876-5432</strong>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <span>WhatsApp</span>
+                            <strong>(21) 98765-4321</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="booking-form">
+                
+                <div class="form-group">
+                    <label for="name-pet">Nome do seu Pet</label>
+                    <input type="text" id="name-pet" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pet-type">Tipo de Pet</label>
+                    <select id="pet-type" required>
+                        <option value="">Selecione</option>
+                        <option value="cachorro">Cachorro</option>
+                        <option value="gato">Gato</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Serviço desejado</label>
+                    <select id="service" required>
+                        <option value="">Selecione</option>
+                        <option value="banho">Banho Completo</option>
+                        <option value="tosa">Tosa Higiênica</option>
+                        <option value="spa">SPA Pet</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="unit">Unidade preferencial</label>
+                    <select id="unit" required>
+                        <option value="">Selecione</option>
+                        <option value="centro">PetCare Centro</option>
+                        <option value="zona-sul">PetCare Zona Sul</option>
+                    </select>
+                </div>
+
+                <!-- DATA -->
+                <div class="form-group">
+                    <label for="booking-date">Data do Agendamento</label>
+                    <input type="date" id="booking-date" required min="">
+                </div>
+
+                <div class="form-group">
+                    <label for="booking-time">Horário do Agendamento</label>
+                    <select id="booking-time" required>
+                        <option value="">Selecione</option>
+                        <!-- Opções de horário serão preenchidas pelo JS -->
+                    </select>
+                </div>
+
+                <button type="submit" class="btn primary full-width">Solicitar agendamento</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- Meus Agendamentos -->
+<section id="meus-agendamentos" class="locations-section" style="display:none;">
+    <div class="container">
+        <h2 class="section-title">Meus Agendamentos</h2>
+        <p class="section-subtitle">Veja e gerencie seus agendamentos marcados</p>
+        
+        <div class="agendamentos-container">
+            <table id="agendamentos-lista" class="agendamentos-table">
+                <thead>
+                    <tr>
+                        <th>Pet</th>
+                        <th>Serviço</th>
+                        <th>Unidade</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- As linhas serão inseridas dinamicamente pelo JavaScript -->
+                </tbody>
+            </table>
+            
+            <p id="sem-agendamentos" style="display:none;">Você ainda não possui agendamentos.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.jpg" alt="PetCare">
+                    <p>Cuidando do seu pet com amor e profissionalismo.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#beneficios">Benefícios</a></li>
+                        <li><a href="#unidades">Unidades</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#agendar">Agendamento</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Rua dos Animais, 123 - Centro</li>
+                        <li><i class="fas fa-phone-alt"></i> (21) 1234-5678</li>
+                        <li><i class="fas fa-envelope"></i> contato@petcare.com.br</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 PetCare - Todos os direitos reservados</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style/style-login.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    crossorigin="anonymous">
+</head>
+<body>
+  <div class="container" id="container">
+    <!-- Cadastro -->
+    <div class="form-container sign-up-container">
+      <form id="registerForm">
+        <h2 class="title">Crie sua conta</h2>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span>ou use seu e-mail para cadastro</span>
+        <input type="text" id="registerName" placeholder="Nome" required />
+        <input type="email" id="registerEmail" placeholder="Email" required />
+        <input type="password" id="registerPassword" placeholder="Senha" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+
+    <!-- Login -->
+    <div class="form-container sign-in-container">
+      <form id="loginForm">
+        <h2 class="title">Entrar</h2>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span>ou use seu e-mail</span>
+        <input type="email" id="loginEmail" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Senha" required />
+        <a href="#">Esqueceu sua senha?</a>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h2>Bem-vindo de volta!</h2>
+          <p>Para se manter conectado, faça login com suas informações pessoais</p>
+          <button class="ghost" id="signIn">Entrar</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h2>Olá, amigo!</h2>
+          <p>Insira seus dados pessoais e comece sua jornada conosco</p>
+          <button class="ghost" id="signUp">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="JS/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Funcionário - PetCare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style-funcionario.css">
+</head>
+
+<body>
+    <header class="admin-header">
+        <div class="container">
+            <h1><i class="fas fa-paw"></i> Painel PetCare</h1>
+            <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Sair</button>
+        </div>
+    </header>
+
+    <main class="admin-container">
+        <section class="filters-section">
+            <div class="container">
+                <div class="filter-group">
+                    <label for="filter-date"><i class="fas fa-calendar-day"></i> Data:</label>
+                    <input type="date" id="filter-date" value="">
+                </div>
+                <div class="filter-group">
+                    <label for="filter-unit"><i class="fas fa-store"></i> Unidade:</label>
+                    <select id="filter-unit">
+                        <option value="todas">Todas as unidades</option>
+                        <option value="centro">PetCare Centro</option>
+                        <option value="zona-sul">PetCare Zona Sul</option>
+                    </select>
+                </div>
+                <button id="newBookingBtn" class="btn primary"><i class="fas fa-plus"></i> Novo Agendamento</button>
+            </div>
+        </section>
+
+        <section class="bookings-section">
+            <div class="container">
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Agendamentos</h3>
+                        <p id="totalBookings">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Faturamento</h3>
+                        <p id="dailyRevenue">R$ 0,00</p>
+                    </div>
+                </div>
+
+                <table id="bookingsTable" class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Pet</th>
+                            <th>Dono</th>
+                            <th>Serviço</th>
+                            <th>Valor</th>
+                            <th>Unidade</th>
+                            <th>Telefone</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados serão inseridos via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Novo Agendamento -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle"><i class="fas fa-calendar-plus"></i> Novo Agendamento</h2>
+            <form id="adminBookingForm">
+                <div class="form-group">
+                    <label for="adminPetName">Nome do Pet:</label>
+                    <input type="text" id="adminPetName" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminUserName">Nome do Dono:</label>
+                    <input type="text" id="adminUserName" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPhone">Telefone:</label>
+                    <input type="tel" id="adminPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminService">Serviço:</label>
+                    <select id="adminService" required>
+                        <option value="banho">Banho Completo</option>
+                        <option value="tosa">Tosa Higiênica</option>
+                        <option value="spa">SPA Pet</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="adminUnit">Unidade:</label>
+                    <select id="adminUnit" required>
+                        <option value="centro">PetCare Centro</option>
+                        <option value="zona-sul">PetCare Zona Sul</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="adminDate">Data:</label>
+                    <input type="date" id="adminDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminTime">Horário:</label>
+                    <select id="adminTime" required>
+                        <option value="">Selecione um horário</option>
+                        <!-- Horários serão preenchidos pelo JavaScript -->
+                    </select>
+                </div>
+                <button type="submit" class="btn primary">Agendar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="JS/funcionario.js"></script>
+</body>
+</html>
