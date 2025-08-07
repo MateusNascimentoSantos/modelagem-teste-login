@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =========================
-    // Função: Carregar Agendamentos (CORRIGIDA)
+    // Função: Carregar Agendamentos (AJUSTADA PARA ID JSON)
     // =========================
     function carregarAgendamentos() {
         try {
@@ -305,19 +305,23 @@ document.addEventListener('DOMContentLoaded', function () {
             // Ordena do mais recente para o mais antigo
             agendamentos.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            // Usa forEach com um ID único para cada agendamento
+            // Usa forEach com um ID único em JSON para cada agendamento
             agendamentos.forEach((ag) => {
                 const dataHora = new Date(ag.date);
                 const tr = document.createElement("tr");
-                // Cria um ID único combinando data, unidade e nome do pet
-                const uniqueId = `${ag.date}-${ag.unit}-${ag.petName}`;
+                // Cria um ID único serializando em JSON o date, unit e petName
+                const uniqueId = JSON.stringify({
+                    date: ag.date,
+                    unit: ag.unit,
+                    petName: ag.petName
+                });
                 tr.innerHTML = `
                     <td>${ag.petName || 'Não informado'}</td>
                     <td>${getServiceName(ag.service)}</td>
                     <td>${getUnitName(ag.unit)}</td>
                     <td>${dataHora.toLocaleDateString('pt-BR')}</td>
                     <td>${dataHora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</td>
-                    <td><button class="btn-action btn-cancelar" data-id="${uniqueId}">Cancelar</button></td>
+                    <td><button class="btn-action btn-cancelar" data-id='${uniqueId}'>Cancelar</button></td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -338,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =========================
-    // Função: Cancelar Agendamento (CORRIGIDA)
+    // Função: Cancelar Agendamento (AJUSTADA PARA ID JSON)
     // =========================
     function cancelarAgendamento(id) {
         try {
@@ -348,12 +352,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // Separa o ID único nos seus componentes
-            const [date, unit, petName] = id.split('-');
-            
+            // Parse do ID JSON para obter as partes
+            const { date, unit, petName } = JSON.parse(id);
+
             let allBookings = getAllBookings();
             const initialLength = allBookings.length;
-            
+
             // Filtra removendo o agendamento específico
             allBookings = allBookings.filter(ag => 
                 !(ag.userEmail === usuarioLogado.email && 
@@ -361,12 +365,12 @@ document.addEventListener('DOMContentLoaded', function () {
                   ag.unit === unit &&
                   ag.petName === petName)
             );
-            
+
             if (allBookings.length === initialLength) {
                 showNotification("Agendamento não encontrado", "error");
                 return;
             }
-            
+
             localStorage.setItem('allBookings', JSON.stringify(allBookings));
             carregarAgendamentos();
             showNotification("Agendamento cancelado!", "success");
