@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const dateTime = new Date(dateTimeString);
 
         if (isNaN(dateTime.getTime())) {
-            alert('Data/hora inválida!');
+            showNotification('Data/hora inválida!', 'error');
             return;
         }
 
@@ -241,7 +241,8 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         if (!existingUser) {
-            alert('Usuário não encontrado! Verifique o nome digitado.');
+           showNotification('Usuário não encontrado! Verifique o nome digitado.', 'error');
+
             return;
         }
 
@@ -253,8 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (conflict) {
-            alert('Este horário já está ocupado nesta unidade. Por favor, escolha outro horário.');
-            return;
+            showNotification('Este horário já está ocupado. Escolha outro horário.', 'error');
         }
 
         // Cria o agendamento vinculado ao usuário
@@ -304,8 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
             loadBookings();
             showSuccessNotification('Agendamento criado com sucesso!');
         } catch (e) {
-            console.error('Erro ao criar agendamento:', e);
-            alert('Erro ao criar agendamento.');
+            showNotification('Erro ao criar agendamento.', 'error');
         }
     }
 
@@ -316,14 +315,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const dateTime = new Date(dateTimeString);
 
         if (isNaN(dateTime.getTime())) {
-            alert('Data/hora inválida!');
+            showNotification('Data/hora inválida!', 'error');
             return;
         }
 
         const allBookings = getAllBookings();
         
         if (index < 0 || index >= allBookings.length) {
-            alert('Índice de agendamento inválido!');
+            showNotification('Índice de agendamento inválido!');
             return;
         }
 
@@ -339,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         if (!existingUser) {
-            alert('Usuário não encontrado! Verifique o nome digitado.');
+            showNotification('Usuário não encontrado! Verifique o nome digitado.');
             return;
         }
 
@@ -379,7 +378,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (conflict) {
-            alert('Este horário já está ocupado nesta unidade. Por favor, escolha outro horário.');
+            showNotification('Este horário já está ocupado nesta unidade. Por favor, escolha outro horário.');
             return;
         }
 
@@ -404,12 +403,12 @@ document.addEventListener('DOMContentLoaded', function () {
             showSuccessNotification('Agendamento atualizado com sucesso!');
         } catch (e) {
             console.error('Erro ao atualizar agendamento:', e);
-            alert('Erro ao atualizar agendamento. Verifique o console para detalhes.');
+            showNotification('Erro ao atualizar agendamento. Verifique o console para detalhes.');
         }
     }
 
     function deleteBooking(index) {
-        if (!confirm('Tem certeza que deseja cancelar este agendamento?')) return;
+        if (!showNotification('Tem certeza que deseja cancelar este agendamento?')) return;
 
         const filteredBookings = getFilteredBookings();
         if (index < 0 || index >= filteredBookings.length) return;
@@ -471,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         for (const field of requiredFields) {
             if (!field.value) {
-                alert('Preencha todos os campos obrigatórios!');
+                showNotification('Preencha todos os campos obrigatórios!');
                 field.focus();
                 return false;
             }
@@ -480,7 +479,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Validação do telefone (mínimo 10 dígitos)
         const phoneDigits = elements.fields.phone.value.replace(/\D/g, '');
         if (phoneDigits.length < 10) {
-            alert('Informe um telefone válido com DDD e número!');
+            showNotification('Informe um telefone válido com DDD e número!');
             elements.fields.phone.focus();
             return false;
         }
